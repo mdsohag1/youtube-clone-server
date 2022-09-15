@@ -38,7 +38,7 @@ export const deleteUser = async (req, res, next) => {
 export const getAUser = async (req, res, next) => {
    try {
       const user = await UserModel.findById(req.params.id);
-      const { password, ...other } = user._doc;
+      const { password, email, ...other } = user._doc;
       res.status(200).json(other);
    } catch (error) {
       next(error);

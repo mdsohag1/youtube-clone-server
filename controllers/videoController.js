@@ -58,11 +58,20 @@ export const getVideo = async (req, res, next) => {
       next(error);
    }
 };
+//get all channel  video
+export const getChannelVideo = async (req, res, next) => {
+   try {
+      const channelVideos = await VideoModel.find({ userId: req.params.id });
+      res.status(200).json(channelVideos);
+   } catch (error) {
+      next(error);
+   }
+};
 
 //add view
 export const addview = async (req, res, next) => {
    try {
-      await VideoModel.findById(req.params.id, { $inc: { views: 1 } });
+      await VideoModel.find(req.params.id, { $inc: { views: 1 } });
       res.status(200).json("the view has been increesed");
    } catch (error) {
       next(error);

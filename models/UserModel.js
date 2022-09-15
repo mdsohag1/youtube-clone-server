@@ -16,6 +16,11 @@ const UserSchema = new mongoose.Schema(
       },
       img: {
          type: String,
+         default: "",
+      },
+      coverImg: {
+         type: String,
+         default: "",
       },
       subscriber: {
          type: Number,

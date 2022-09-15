@@ -5,6 +5,7 @@ import {
    deleteVideo,
    getBySearch,
    getByTags,
+   getChannelVideo,
    getVideo,
    random,
    sub,
@@ -23,6 +24,8 @@ router.put("/:id", verifyToken, updateVideo);
 router.delete("/:id", verifyToken, deleteVideo);
 //get video
 router.get("/find/:id", getVideo);
+//get all channel video
+router.get("/find/channelvideo/:id", getChannelVideo);
 //add view
 router.get("/view/:id", addview);
 //trend video
